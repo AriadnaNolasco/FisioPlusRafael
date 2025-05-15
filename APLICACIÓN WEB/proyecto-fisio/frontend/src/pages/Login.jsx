@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import '../styles/Login.css' // Asegúrate de que contiene el diseño estilizado
 
 export default function Login() {
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')  // Cambio aquí
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const navigate = useNavigate()
@@ -14,7 +14,7 @@ export default function Login() {
     const res = await fetch('http://127.0.0.1:8000/api/login/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: email, password }) // Django requiere "username"
+      body: JSON.stringify({ username, password })  // Ahora sí es username
     })
 
     if (res.ok) {
@@ -33,10 +33,10 @@ export default function Login() {
 
         <form className="login-form" onSubmit={handleSubmit}>
           <input
-            type="email"
-            placeholder="Correo institucional"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+            type="text"
+            placeholder="Nombre de usuario"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
             required
           />
 
