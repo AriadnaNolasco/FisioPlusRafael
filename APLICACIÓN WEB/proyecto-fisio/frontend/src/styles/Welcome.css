@@ -1,0 +1,54 @@
+.welcome-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #D8E0F0, #AABCE8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  color: #1A1A2E;
+  padding: 40px;
+}
+
+.welcome-content {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  padding: 60px 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.welcome-title {
+  font-weight: bold;
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+
+.welcome-button {
+  background-color: #8CA0F6;
+  color: white;
+  padding: 18px 50px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-decoration: none;
+  margin-bottom: 25px;
+  display: inline-block;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
+}
+
+.welcome-button:hover {
+  background-color: #6C86F4;
+}
+
+.welcome-text {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.welcome-text a {
+  color: #5D53FF;
+  text-decoration: underline;
+}
