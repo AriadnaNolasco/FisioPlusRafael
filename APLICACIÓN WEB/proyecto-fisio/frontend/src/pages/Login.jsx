@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import '../styles/Login.css'
+import '../styles/Login.css' // Asegúrate de que contiene el diseño estilizado
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -14,7 +14,7 @@ export default function Login() {
     const res = await fetch('http://127.0.0.1:8000/api/login/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: email, password }) // Django usa username para login
+      body: JSON.stringify({ username: email, password }) // Django requiere "username"
     })
 
     if (res.ok) {
@@ -29,15 +29,17 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="login-content">
-        <h2 className="login-title">Login</h2>
+        <h2 className="login-title">Iniciar sesión</h2>
+
         <form className="login-form" onSubmit={handleSubmit}>
           <input
             type="email"
-            placeholder="Correo"
+            placeholder="Correo institucional"
             value={email}
             onChange={e => setEmail(e.target.value)}
             required
           />
+
           <input
             type="password"
             placeholder="Contraseña"
@@ -45,9 +47,12 @@ export default function Login() {
             onChange={e => setPassword(e.target.value)}
             required
           />
+
           <button type="submit" className="login-button">Entrar</button>
         </form>
+
         {error && <p className="login-error">{error}</p>}
+
         <p className="login-footer">
           ¿No tienes cuenta? <Link to="/register">Regístrate</Link>
         </p>
